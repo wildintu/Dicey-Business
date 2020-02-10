@@ -5,14 +5,13 @@
     margin-top: 0.5em;
     background-clip: content-box;
     background-color:white;
-    border: solid 5px black;
+    border: solid 3px black;
     border-radius: 0.5em;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     font-size: xx-large;
-    
 
 }
 
@@ -30,5 +29,17 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-content: space-around;
+}
+
+#start-btn {
+    background-color: green;
+    border-radius: 0.3em;
+    font-size: 1.5em;
+}
+
+#some-btn {
+    background-color:yellow;
+    border-radius: 0.3em;
+    font-size: 1.5em;
 }
 
