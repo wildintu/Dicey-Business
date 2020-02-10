@@ -16,7 +16,10 @@ class Die {
     }
 
     addEventsYo(){
-        this.div.addEventListener('click', () => this.reroll());
+        this.div.addEventListener('click', () => {
+            this.reroll();
+            this.div.style.backgroundColor = this.randomColor();
+        });
         this.div.addEventListener('dblclick', () => this.destroyDie());
     }
 

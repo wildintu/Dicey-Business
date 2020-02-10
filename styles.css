@@ -4,7 +4,7 @@
     margin-right: 0.5em;
     margin-top: 0.5em;
     background-clip: content-box;
-    background-color:white;
+    background-color: whitesmoke;
     border: solid 3px black;
     border-radius: 0.5em;
     display: flex;
@@ -32,20 +32,28 @@
 }
 
 #start-btn {
-    background-color: green;
+    background-color: greenyellow;
     border-radius: 0.3em;
     font-size: 1.5em;
+    color: black;
 }
 
 #roll-btn {
-    background-color: blue;
+    background-color: pink;
     border-radius: 0.3em;
-    font-size: 1.5em; 
+    font-size: 1.5em;
+    color: black;
 }
 
 #some-btn {
-    background-color:yellow;
+    background-color:lightskyblue;
+    color: black;
     border-radius: 0.3em;
     font-size: 1.5em;
+}
+
+body {
+    background-image: url(marblebg.jpg);
+    background-size: cover;
 }
 
