@@ -1,5 +1,7 @@
 let generateBtn = document.getElementById('start-btn');
-let someBtn = document.getElementById('sum-btn');
+let someBtn = document.getElementById('some-btn');
+let rollBtn = document.getElementById('roll-btn');
+let array = [];
 let counter = 0;
 
 class Die {
@@ -7,20 +9,32 @@ class Die {
         this.div = document.createElement('div');
         this.value = document.createTextNode(counter);
         this.render();
+        array.push(this);
         this.roll();
         this.addEventsYo();
+        this.rollAll();
     }
 
     addEventsYo(){
-        this.div.addEventListener('click', () => this.div.style.backgroundColor = this.randomColor());
+        this.div.addEventListener('click', () => this.reroll());
         this.div.addEventListener('dblclick', () => this.destroyDie());
-
     }
 
     roll() {
         //determines value of the dice
         let randomVal = Math.floor(Math.random() * 6) + 1;
         this.div.innerText = randomVal;
+        this.divText = randomVal;
+    }
+
+    reroll() {
+        let replaceVal = Math.floor(Math.random() * 6) + 1;
+        this.div.innerText = replaceVal;
+        this.divText = replaceVal;
+    }
+
+    rollAll() {
+    rollBtn.addEventListener('click', () => this.roll());
     }
 
     render() {
@@ -36,38 +50,33 @@ class Die {
         return `rgb(${r}, ${g}, ${b})`;
     }
 
-
     destroyDie() {
-        if (this.id % 2 === 0) {
-            if (this.div.nextSibling) {
-                this.div.nextSibling.remove();
-            } else {
-                alert('Square does not exist!');
-            }
-        } else {
-            if (this.div.previousSibling) {
-                this.div.previousSibling.remove();
-            } else {
-                alert('Square does not exist!');
-            }
-        }
+        let e = this.div.parentNode;
+        e.removeChild(this.div);
+        let dieclass = array.indexOf(this);
+        array.splice(dieclass, 1);
+      }
+      
     }
-}
+    
+    generateBtn.addEventListener('click', function () {
+        new Die();
+        counter++;
+    })
+    
+    someBtn.addEventListener('click', function() {
+        let integers = [];
+        array.forEach(function(e) {
+            integers.push(e.divText);   
+        })
+        let final = integers.reduce(sumDice);
+        alert(`Your sum is ${final}!`);
+    })
+    
+    function sumDice(a,b) {
+        return a + b;
+      }
 
-generateBtn.addEventListener('click', function () {
-    new Die();
-    counter++;
-})
-
-//sumBtn.addEventListener('click, function() {
-
-//})
-
-
-// function sumDice() {
-
-
-// }
 
 
 
