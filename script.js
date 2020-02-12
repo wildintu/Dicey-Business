@@ -17,7 +17,7 @@ class Die {
 
     addEventsYo(){
         this.div.addEventListener('click', () => {
-            this.reroll();
+            this.roll();
             this.div.style.backgroundColor = this.randomColor();
         });
         this.div.addEventListener('dblclick', () => this.destroyDie());
@@ -28,12 +28,6 @@ class Die {
         let randomVal = Math.floor(Math.random() * 6) + 1;
         this.div.innerText = randomVal;
         this.divText = randomVal;
-    }
-
-    reroll() {
-        let replaceVal = Math.floor(Math.random() * 6) + 1;
-        this.div.innerText = replaceVal;
-        this.divText = replaceVal;
     }
 
     rollAll() {
